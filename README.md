@@ -4,8 +4,11 @@
 
 ## 使い方
 ```
-TWITTER_API_KEY=xxxxxxxxx
-TWITTER_API_SECRET_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxx
-TWITTER_ACCESS_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-TWITTER_ACCESS_TOKEN_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ export TWITTER_API_KEY=xxxxxxxxx
+$ export TWITTER_API_SECRET_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ export TWITTER_ACCESS_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ export TWITTER_ACCESS_TOKEN_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+$ docker-compose build
+$ docker-compose up -d
 ```
+
