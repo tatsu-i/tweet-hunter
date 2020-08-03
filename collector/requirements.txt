@@ -1,0 +1,4 @@
+requests
+elasticsearch-dsl
+tweepy
+fire

@@ -1,0 +1,13 @@
+{
+    "order": 1,
+    "index_patterns": ["tweet*"],
+    "aliases": {},
+    "mappings": {},
+    "settings": {
+        "index": {
+            "number_of_replicas": 0,
+            "number_of_shards": "1"
+        },
+        "index.mapping.total_fields.limit": 3000
+    }
+}
