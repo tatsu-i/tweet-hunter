@@ -11,6 +11,8 @@ services:
       - TWITTER_ACCESS_TOKEN=${TWITTER_ACCESS_TOKEN}
       - TWITTER_ACCESS_TOKEN_SECRET=${TWITTER_ACCESS_TOKEN_SECRET}
     restart: always
+    volumes:
+      - ./conf/:/conf/
     depends_on:
       - elasticsearch
 

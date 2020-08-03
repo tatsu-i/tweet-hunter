@@ -2,3 +2,4 @@ requests
 elasticsearch-dsl
 tweepy
 fire
+pyyaml
