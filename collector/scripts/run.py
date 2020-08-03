@@ -27,7 +27,7 @@ with open("/conf/config.yaml") as f:
             follow.append(id_str)
             ubq = UpdateByQuery(using=es, index="tweet*")
             query = (
-                ubq.query("match", id_str__keyword=id_str)
+                ubq.query("match", user__id_str__keyword=id_str)
                 .script(
                     source="""
                         int i = 0;
@@ -36,8 +36,10 @@ with open("/conf/config.yaml") as f:
                             ctx._source.list_name = [];
                         }
                         for(i = 0; i < ctx._source.list_name.size(); i++){
-                            found = 1;
-                            break;
+                            if (ctx._source.list_name[i] == params.list_name){
+                                found = 1;
+                                break;
+                            }
                         }
                         if (found == 0){
                             ctx._source.list_name.add(params.list_name);
@@ -95,5 +97,5 @@ listener = Listener()
 # 受信開始
 stream = tweepy.Stream(auth, listener)
 
-print("start collect stream")
+print(f"start collect stream {len(follow)} users")
 stream.filter(follow=follow)
