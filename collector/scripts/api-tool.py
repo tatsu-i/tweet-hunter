@@ -21,14 +21,16 @@ class Cli:
             print(f"[{twilist.slug}]")
             print("full_name="+twilist.full_name)
 
-    def get_list_member_ids(self, listname, screen_name, config_file="/conf/config.yaml"):
+    def get_list_member_ids(self, listname, screen_name, your_name, config_file="/conf/config.yaml"):
         conf = {}
         if os.path.exists(config_file):
             with open(config_file) as f:
                 conf = yaml.safe_load(f)
         conf["list"] = conf.get("list", {})
-        conf["list"][listname] = conf["list"].get(listname, [])
+        conf["list"][listname] = []
         for member in tweepy.Cursor(self.api.list_members,slug=listname, owner_screen_name=screen_name).items():
+            if member.screen_name == your_name:
+                continue
             if not member.following and not member.protected:
                 member.follow()
                 time.sleep(5)
